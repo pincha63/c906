@@ -1,8 +1,0 @@
-h1 Hi
-
-p =Song.get(@linksong).title
-p =Tag.get(@linktag).tagname
-
-form action="/songtags/#{@linksong}/#{@linktag}" method="POST"
-      input type="hidden" name="_method" value="DELETE"
-      input type="submit" value="delete this songtag"

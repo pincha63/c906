@@ -13,16 +13,16 @@ h2= @song.id.to_s + ": " + @song.title
     p== "Chosen by users: " + songUsers(@song)
 	==create_youtube(@song.videoref) || "<p>No video <em>yet</em>...</p>"
 	.taglist
-      ul.taglist
+      ul
 	    -@song.tags.sort_by{|x| x.tagname}.each do |aTag|
-		  li.tagelement #{aTag.tagname}
+		  li.tagel #{aTag.tagname}
       -noTagCollection=[]
 	  -Tag.each do |noTag|
          -noTagCollection.push(noTag) unless @song.tags.include?(noTag)		
-      ul.taglist
-        -noTagCollection.uniq.sort_by{|x| x.tagname}.each do |aTag|
+      ul
+		-noTagCollection.uniq.sort_by{|x| x.tagname}.each do |aTag|
           -@arg1 = aTag.id
 		  -@arg2 = @song.id
-		  li.tagnoelement <a href="/songtags/new/#{@arg2}/#{@arg1}">#{aTag.tagname}</a>
+		  li.tagel.notselected <a href="/songtags/new/#{@arg2}/#{@arg1}">#{aTag.tagname}</a>
 #footer.nofloat
     p.smalltext $&nbsp;

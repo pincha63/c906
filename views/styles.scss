@@ -42,27 +42,6 @@ header h1 {
 	padding-left: $nav-padding-left;
 	padding-right: $nav-padding-right;
   }
-
-  li.tagelement {
-    float: left;
-	font-size: 10px;
-	background: darken($background, 10%);
-	border: 1px solid darken($background, 77%);
-	border-radius: 3px;
-	margin: 11px 4px 18px 4px;
-	padding: 4px;
-  }
-
-  li.tagnoelement {
-    float: left;
-	font-size: 10px;
-	color: lighten($color, 15%);
-	background: darken($background, 2%);
-	border: 1px solid darken($background, 20%);
-	border-radius: 4px;
-	margin: 1px 4px 18px 4px;
-	padding: 4px;
-  }
   
   a {
     text-decoration: none;
@@ -74,6 +53,22 @@ header h1 {
       background: darken($background, 20%);
     }
   }
+
+  li.tagel {
+	font-size: 10px;
+	background: darken($background, 12%);
+	border: 1px solid darken($background, 77%);
+	border-radius: 4px;
+	min-height: 16px;
+	margin: 11px 4px 18px 4px;
+	padding: 4px;
+  }
+
+  li.notselected {
+	color: lighten($color, 15%);
+	background: darken($background, 2%);
+  }  
+  
 }
 
 .taglist {
