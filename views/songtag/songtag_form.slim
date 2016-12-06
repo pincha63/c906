@@ -1,0 +1,12 @@
+ul#mytagsweep
+      -Tag.each do |candidate|
+		   li id: #{candidate.id}:  #{candidate.tagname}
+label for=":tag.id" Choose tag ID:
+input#tag_id type="number" name="songtag[tag_id]" value="#{@songtag.tag_id}"
+ul#mysongsweep
+      -Song.each do |songref|
+		   li id: #{songref.id}:  #{songref.title}
+label for=":song.id" Choose song ID:
+input#song_id type="number" name="songtag[song_id]" value="#{@songtag.song_id}"
+p
+  input type="submit" value="Save Songtag"

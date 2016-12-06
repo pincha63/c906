@@ -1,0 +1,21 @@
+Technical debt as I finish chapter 4
+
+1. Run chapter 3 code on jRuby, notably I can get the method to finalize but then no save and no auto_migrate!
+   apparently DataMapper does not run on jRuby, ActiveRecord does
+2. SOLVED - thin would not install --- needed devkit to install thin
+3. SOLVED - Database code not running on Heroku -- adapter was not set up for postgres (see the very end of Ch. 4)
+4. Once installed thin, local also switched from WEBrick to thin. Can I control that?
+5. Sessions
+6. Login and roles
+7. Full CSS control + embed diff formats in Slim (i.e. have pages not controlled by layout.slim)
+8. SOLVED - Multi-table, relational integrity, more complex SQL
+9. Sliders (jQuery?)
+10. Be able to run all of this from Linux
+
+Ojota
+51. git commit -m "initial commit" //only double quotes work for Windows, whereas book has single quotes
+52. To build "thin" you need the ruby devkit
+53. Do not remove the Lock file from the repository -- let Heroku remove it.
+54. Video embed: we need "embed" in the string, not "watch": 
+    www.youtube.com/embed/7o0a6Xhf69I is good, and www.youtube.com/watch?v=7o0a6Xhf69I is bad
+55. Old ones

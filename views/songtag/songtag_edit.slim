@@ -1,0 +1,4 @@
+h1 Edit Songtag
+form method="POST" action="/songtags/#{@songtag.id}"
+  input type="hidden" name="_method" value="PUT"
+  == slim :songtag_form

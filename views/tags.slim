@@ -1,0 +1,8 @@
+h1 Tags
+a href="/tags/new" Create a new tag
+- if @tags.any?
+  ul#tags
+    -@tags.each do |tag|
+      li <a href="/tags/#{tag.id}">#{tag.tagname}
+- else
+  p No tags have been created yet!

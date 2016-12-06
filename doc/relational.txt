@@ -1,0 +1,17 @@
+1. Do datamapper.finalize only once... at the class you call last!
+   You still have to init classes
+   
+Manual load of parent is...
+Tag.create(tagname: "Value1", current: "20170000", :song_id=>1)   
+   
+## The attribute ':song_id' is not accessible in Tag
+Action now happening in tag_form.slim
+
+Relational stuff:
+http://datamapper.org/getting-started.html
+http://datamapper.org/docs/associations.html
+http://datamapper.org/docs/properties.html
+http://datamapper.org/docs/create_and_destroy.html
+Just in case...
+http://stackoverflow.com/questions/16333366/what-is-the-correct-way-to-setup-database-with-datamapper-and-sinatra-on-product
+

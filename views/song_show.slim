@@ -1,0 +1,28 @@
+h2= @song.id.to_s + ": " + @song.title
+#leftside.floatleft
+	p Artist: #{@song.artist}
+	p Length: #{@song.length/60} min #{@song.length%60} sec
+    pre= @song.lyrics
+    p <a href="/songs">back to songs index</a>
+    p <a href="/songs/#{@song.id}/edit">edit this song</a>
+    form action="/songs/#{@song.id}" method="POST"
+      input type="hidden" name="_method" value="DELETE"
+      input type="submit" value="delete this song"
+	
+#rightside.floatright
+    p== "Chosen by users: " + songUsers(@song)
+	==create_youtube(@song.videoref) || "<p>No video <em>yet</em>...</p>"
+	.taglist
+      ul.taglist
+	    -@song.tags.sort_by{|x| x.tagname}.each do |aTag|
+		  li.tagelement #{aTag.tagname}
+      -noTagCollection=[]
+	  -Tag.each do |noTag|
+         -noTagCollection.push(noTag) unless @song.tags.include?(noTag)		
+      ul.taglist
+        -noTagCollection.uniq.sort_by{|x| x.tagname}.each do |aTag|
+          -@arg1 = aTag.id
+		  -@arg2 = @song.id
+		  li.tagnoelement <a href="/songtags/new/#{@arg2}/#{@arg1}">#{aTag.tagname}</a>
+#footer.nofloat
+    p.smalltext $&nbsp;

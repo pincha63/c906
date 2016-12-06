@@ -1,0 +1,5 @@
+Technical debt as of 05-Dec
+
+1. Helpers clean... approach of having my_methods seems dirty
+2. Rationalize CSS... too many rules, not enough structure
+3. The class taglist is used both for div and ul

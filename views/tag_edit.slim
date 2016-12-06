@@ -1,0 +1,4 @@
+h1 Edit Tag
+form method="POST" action="/tags/#{@tag.id}"
+  input type="hidden" name="_method" value="PUT"
+  == slim :tag_form

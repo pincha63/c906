@@ -1,0 +1,8 @@
+- songname = Song.get(@linksong).title
+- tagname  = Tag.get(@linktag).tagname
+h2 Song #{songname} is linked to tag #{tagname}
+p &nbsp;
+p &nbsp;
+form action="/songtags/#{@linksong}/#{@linktag}" method="POST"
+      input type="hidden" name="_method" value="DELETE"
+      input type="submit" value="delete this songtag"

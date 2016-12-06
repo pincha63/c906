@@ -1,0 +1,24 @@
+The best way to generalize the Jump Start app would be copying the process
+
+-- DONE --
+
+To create **any other class**
+We need the following files (using Tag as an example)
+1  .\tag.rb                  - includes data definition, helpers, routes
+2  .\views\edit_tag.slim     - generates PUT into tag_form
+3  .\views\new_tag.slim      - generates POST into tag_form
+4  .\views\show_tag.slim     - displays fields of current tag
+5  .\views\tag_form.slim     - form with entry fields plus submit button
+6  .\views\tags.slim         - lists all tags, link to create
+
+To initialize **each such class** we need to:
+1  Clone the one-time-codes/Class_noconf.rb file
+   This must include requires, setup, Class definition and call finalize...
+   but no config, no helpers and no routes
+2  Load the clone in irb (expected result: True)
+3  Enter command in irb: Classname.auto_migrate! (expected result: True)
+4  Optional - create data. See file load.rb
+   The template for creating data in irb is:
+   Classname.create(param1: "Value1", param2: "Value2")
+   
+   

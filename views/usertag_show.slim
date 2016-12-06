@@ -1,0 +1,14 @@
+h1= @usertag.validated
+#leftside.floatleft
+	- myTag = Tag.get(@usertag.tag_id)
+	- tagInfo = myTag.tagname
+	- myUser = User.get(@usertag.user_id)
+	- userInfo = myUser.username
+    p Usertag label: #{@usertag.validated}
+	p Linking user: #{@usertag.user_id} : #{userInfo}
+	p ... to tag: #{@usertag.tag_id}  : #{tagInfo}
+    p <a href="/usertags">back to usertags index</a>
+    p <a href="/usertags/#{@usertag.id}/edit">edit this usertag</a>
+    form action="/usertags/#{@usertag.id}" method="POST"
+      input type="hidden" name="_method" value="DELETE"
+      input type="submit" value="delete this usertag"

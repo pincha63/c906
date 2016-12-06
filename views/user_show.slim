@@ -1,0 +1,22 @@
+h1= @user.id.to_s + ": " + @user.username
+#leftside.floatleft
+    p User Name: #{@user.username}
+    p Avatar: #{@user.useravatar}
+    p <a href="/users">back to users index</a>
+    p <a href="/users/#{@user.id}/edit">edit this user</a>
+    form action="/users/#{@user.id}" method="POST"
+      input type="hidden" name="_method" value="DELETE"
+      input type="submit" value="delete this user"
+    -songCollection =[]
+    -@user.tags.each do |aTag|
+      -aTag.songs.each do |aSong|
+        -songCollection.push(aSong)
+#rightside.floatright    
+	-songCollection.uniq.sort_by{|x| x.title}.each do |displaySong|
+	    p <a href="/songs/#{displaySong.id}">#{displaySong.title}</a>
+
+	
+	
+
+	
+  

@@ -1,0 +1,12 @@
+label for="title" Title:
+input#title type="text" name="song[title]" value="#{@song.title}"
+label for="artist" Artist:
+input#title type="text" name="song[artist]" value="#{@song.artist}"
+label for="length" Length:
+input#length type="number" name="song[length]" value="#{@song.length}"
+label for="videoref" URL to video:
+input#videoref type="text" name="song[videoref]" value="#{@song.videoref}"
+label for="lyrics" Lyrics:
+textarea#lyrics name="song[lyrics]" == @song.lyrics
+p
+  input type="submit" value="Save Song"

@@ -1,0 +1,4 @@
+h1 Edit Usertag
+form method="POST" action="/usertags/#{@usertag.id}"
+  input type="hidden" name="_method" value="PUT"
+  == slim :usertag_form

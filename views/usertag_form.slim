@@ -1,0 +1,14 @@
+label for="validated" Usertag Label:
+input#validated type="text" name="usertag[validated]" value="#{@usertag.validated}"
+ul#mytagsweep
+      -Tag.each do |candidate|
+		   li id: #{candidate.id}:  #{candidate.tagname}
+label for=":tag.id" Choose tag ID:
+input#tag_id type="number" name="usertag[tag_id]" value="#{@usertag.tag_id}"
+ul#myusersweep
+      -User.each do |userref|
+		   li id: #{userref.id}:  #{userref.username}:  #{userref.useravatar}
+label for=":user.id" Choose user ID:
+input#user_id type="number" name="usertag[user_id]" value="#{@usertag.user_id}"
+p
+  input type="submit" value="Save Usertag"

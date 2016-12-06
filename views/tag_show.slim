@@ -1,0 +1,20 @@
+h1= @tag.tagname
+#leftside.floatleft
+    p Tag Name: #{@tag.tagname}
+	p Current: #{@tag.current}
+    p <a href="/tags">Back to tags index</a>
+    p <a href="/tags/#{@tag.id}/edit">Edit this tag</a>
+    form action="/tags/#{@tag.id}" method="POST"
+      input type="hidden" name="_method" value="DELETE"
+      input type="submit" value="delete this tag"
+#rightside.floatright
+    -userCollection = []
+    -songCollection = [] 
+    -@tag.users.each do |aUser|
+	   -userCollection.push(aUser)
+    -@tag.songs.each do |aSong|
+       -songCollection.push(aSong)
+    -userCollection.uniq.sort_by{|x| x.username}.each do |aUser|
+       p <a href="/users/#{aUser.id}">#{aUser.username}</a> 
+    -songCollection.uniq.sort_by{|x| x.title}.each do |aSong|
+       p <a href="/songs/#{aSong.id}">#{aSong.title}</a> 

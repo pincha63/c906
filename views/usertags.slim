@@ -1,0 +1,8 @@
+h1 Usertags
+a href="/usertags/new" Create a new usertag
+- if @usertags.any?
+  ul#usertags
+    -@usertags.each do |usertag|
+      li <a href="/usertags/#{usertag.id}">#{usertag.validated}</a>
+- else
+  p No usertags have been created yet!

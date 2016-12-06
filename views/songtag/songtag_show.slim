@@ -1,0 +1,10 @@
+h1 Displaying Songtag
+#leftside.floatleft
+	- myTag = Tag.get(@songtag.tag_id).tagname
+	- mySong = Song.get(@songtag.song_id).title
+	p This songtag links #{myTag} to #{mySong}
+    p <a href="/songtags">back to songtags index</a>
+    p <a href="/songtags/#{@songtag.id}/edit">edit this songtag</a>
+    form action="/songtags/#{@songtag.id}" method="POST"
+      input type="hidden" name="_method" value="DELETE"
+      input type="submit" value="delete this songtag"
