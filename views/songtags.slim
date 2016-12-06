@@ -1,9 +1,9 @@
 h1 Songtags
 - if @songtags.any?
-  ul#songtags
-    -@songtags.each do |st|
-	   -mySong=Song.get(st.song_id)
-	   -myTag=Tag.get(st.tag_id)
-       li <a href="/songtag/#{st.song_id}/#{st.tag_id}">#{mySong.title} : #{myTag.tagname}</a>
+    ul#songtags
+      -@songtags.each do |st|
+	    -mySong=Song.get(st.song_id)
+	    -myTag=Tag.get(st.tag_id)
+        li <a href="/songtag/#{st.song_id}/#{st.tag_id}">#{mySong.title} : #{myTag.tagname}</a>
 - else
   p No songtags have been created yet!

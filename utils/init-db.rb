@@ -6,7 +6,7 @@ DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development903.db")
 
 class Songtag
    include DataMapper::Resource
-   belongs_to :song,   :key => true
+   belongs_to :song,  :key => true
    belongs_to :tag,   :key => true
 end
 

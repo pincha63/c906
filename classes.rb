@@ -282,10 +282,6 @@ get '/songtags/new/:song/:tag' do
 end
 
 delete '/songtags/:song/:tag' do
-  Songtag.each do |st|
-    if (st.song_id==Song.get(params[:song]).id && st.tag_id==Tag.get(params[:tag]).id)
-	   st.destroy
-	end
-  end
+  Songtag.get(params[:song],params[:tag]).destroy
   redirect to('/songtags')
 end

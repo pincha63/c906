@@ -1,6 +1,8 @@
+- songid = Song.get(@linksong).id
+- tagid = Tag.get(@linktag).id
 - songname = Song.get(@linksong).title
 - tagname  = Tag.get(@linktag).tagname
-h2 Song #{songname} is linked to tag #{tagname}
+p Song <a href="/songs/#{songid}">#{songname}</a> is linked to tag <a href="/tags/#{tagid}">#{tagname}</a>
 p &nbsp;
 p &nbsp;
 form action="/songtags/#{@linksong}/#{@linktag}" method="POST"
