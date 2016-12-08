@@ -100,12 +100,7 @@ put '/songs/:id' do
 end
 
 delete '/songs/:id' do
-  Songtag.each do |st|
-    if st.song_id == song_find.id
-	   st.destroy
-    end
-  end	
-  #redirect to('/songtags')  
+  song_find.songtags.destroy
   song_find.destroy
   redirect to('/songs')
 end
@@ -157,16 +152,8 @@ put '/tags/:id' do
 end
 
 delete '/tags/:id' do
-  Songtag.each do |st|
-    if st.tag_id == tag_find.id
-	   st.destroy
-    end
-  end	
-  Usertag.each do |ut|
-    if ut.tag_id == tag_find.id
-	   ut.destroy
-    end
-  end	
+  tag_find.songtags.destroy
+  tag_find.usertags.destroy
   tag_find.destroy
   redirect to('/tags')
 end
@@ -218,11 +205,7 @@ put '/users/:id' do
 end
 
 delete '/users/:id' do
-  Usertag.each do |ut|
-    if ut.user_id == user_find.id
-	   ut.destroy
-    end
-  end	
+  user_find.usertags.destroy
   user_find.destroy
   redirect to('/users')
 end
@@ -287,6 +270,13 @@ get '/usertags/:id/edit' do
   @usertag = usertag_find
   slim :usertag_edit
 end
+
+module SongtagHelpers
+  def songtags_find
+    @songtags = Songtag.all
+  end
+end
+helpers SongtagHelpers
 
 get '/songtags' do #show list of songtags
   @songtags = Songtag.all
