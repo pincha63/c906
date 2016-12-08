@@ -9,6 +9,6 @@ ul#myusersweep
       -User.each do |userref|
 		   li id: #{userref.id}:  #{userref.username}:  #{userref.useravatar}
 label for=":user.id" Choose user ID:
-input#user_id type="number" name="usertag[user_id]" value="#{@usertag.user_id}"
+input#user_id type="number" name="usertag[user_id]" value="#{@usertag.user_id}" 
 p
   input type="submit" value="Save Usertag"

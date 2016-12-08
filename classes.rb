@@ -100,6 +100,12 @@ put '/songs/:id' do
 end
 
 delete '/songs/:id' do
+  Songtag.each do |st|
+    if st.song_id == song_find.id
+	   st.destroy
+    end
+  end	
+  #redirect to('/songtags')  
   song_find.destroy
   redirect to('/songs')
 end
@@ -151,6 +157,16 @@ put '/tags/:id' do
 end
 
 delete '/tags/:id' do
+  Songtag.each do |st|
+    if st.tag_id == tag_find.id
+	   st.destroy
+    end
+  end	
+  Usertag.each do |ut|
+    if ut.tag_id == tag_find.id
+	   ut.destroy
+    end
+  end	
   tag_find.destroy
   redirect to('/tags')
 end
@@ -238,7 +254,12 @@ end
 
 post '/usertags' do
   usertag_create
-  redirect to("/usertags/#{@usertag.id}")
+  if User.get(@usertag.user_id) && Tag.get(@usertag.tag_id)
+	 redirect to("/usertags/#{@usertag.id}")
+  else
+    @usertag.destroy
+    redirect to("/usertags") 
+  end
 end
 
 get '/usertags/:id' do
@@ -275,10 +296,15 @@ end
 
 get '/songtags/new/:song/:tag' do
   @linksong = Song.get(params[:song])
+  @linktag  = Tag.get(params[:tag])
   @stcsong = params[:song]
   @stctag = params[:tag]
-  Songtag.create(song_id: @stcsong, tag_id: @stctag)  
-  redirect to("/songs/#{@linksong.id}")
+  if @linksong && @linktag
+     Songtag.create(song_id: @stcsong, tag_id: @stctag)  
+	 redirect to("/songs/#{@linksong.id}")
+  else
+     redirect to("/songtags")
+  end
 end
 
 delete '/songtags/:song/:tag' do
