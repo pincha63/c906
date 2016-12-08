@@ -218,6 +218,11 @@ put '/users/:id' do
 end
 
 delete '/users/:id' do
+  Usertag.each do |ut|
+    if ut.user_id == user_find.id
+	   ut.destroy
+    end
+  end	
   user_find.destroy
   redirect to('/users')
 end
